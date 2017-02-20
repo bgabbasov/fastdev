@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Net.Http.Headers;
+using NuGet.Packaging;
 
 namespace FastDev.Web.Controllers
 {
@@ -110,7 +111,7 @@ namespace FastDev.Web.Controllers
                 DefaultFormOptions.MultipartBoundaryLengthLimit);
             var reader = new MultipartReader(boundary, HttpContext.Request.Body);
 
-            var parser = new AParser(_aContext, _fileStore, _logger);
+            var parser = new AParser(_aContext, _fileStore, _logger, messages);
             MultipartSection section;
             while ((section = await reader.ReadNextSectionAsync()) != null)
             {

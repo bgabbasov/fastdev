@@ -13,7 +13,7 @@ namespace FastDev.Web.Parsers
         private readonly AContext _aContext;
         private readonly FileStore _fileStore;
         private readonly ILogger _logger;
-        private readonly LinkedList<string> _messages = new LinkedList<string>();
+        private readonly LinkedList<string> _messages;
 
         private int? _currentIndex;
         private bool _hasId;
@@ -97,11 +97,12 @@ namespace FastDev.Web.Parsers
             }
         }
 
-        public AParser(AContext aContext, FileStore fileStore, ILogger logger)
+        public AParser(AContext aContext, FileStore fileStore, ILogger logger, LinkedList<string> messages)
         {
             _aContext = aContext;
             _fileStore = fileStore;
             _logger = logger;
+            _messages = messages;
         }
 
         /// <summary>
@@ -155,7 +156,5 @@ namespace FastDev.Web.Parsers
         {
             if (_currentIndex.HasValue) await ValidateAndSave();
         }
-
-        public IEnumerable<string> Messages => _messages;
     }
 }
