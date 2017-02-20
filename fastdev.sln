@@ -10,7 +10,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		global.json = global.json
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "FastDev.Web", "src\FastDev.Web\FastDev.Web.xproj", "{06EE2F2E-A2D5-4A9D-B573-CD39980313B2}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "FastDev.Client", "src\FastDev.Client\FastDev.Client.xproj", "{532F6C7E-9EEC-477D-89C3-6F30495696E2}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "FastDev.Web", "src\FastDev.Web\FastDev.Web.xproj", "{F4DC6ED5-9FAB-4F72-885F-D33422A05B6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,15 +20,20 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{06EE2F2E-A2D5-4A9D-B573-CD39980313B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{06EE2F2E-A2D5-4A9D-B573-CD39980313B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{06EE2F2E-A2D5-4A9D-B573-CD39980313B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{06EE2F2E-A2D5-4A9D-B573-CD39980313B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{532F6C7E-9EEC-477D-89C3-6F30495696E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{532F6C7E-9EEC-477D-89C3-6F30495696E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{532F6C7E-9EEC-477D-89C3-6F30495696E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{532F6C7E-9EEC-477D-89C3-6F30495696E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4DC6ED5-9FAB-4F72-885F-D33422A05B6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4DC6ED5-9FAB-4F72-885F-D33422A05B6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4DC6ED5-9FAB-4F72-885F-D33422A05B6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4DC6ED5-9FAB-4F72-885F-D33422A05B6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{06EE2F2E-A2D5-4A9D-B573-CD39980313B2} = {6DCA8F3F-248B-4A4F-9542-872383DB9EBE}
+		{532F6C7E-9EEC-477D-89C3-6F30495696E2} = {6DCA8F3F-248B-4A4F-9542-872383DB9EBE}
+		{F4DC6ED5-9FAB-4F72-885F-D33422A05B6D} = {6DCA8F3F-248B-4A4F-9542-872383DB9EBE}
 	EndGlobalSection
 EndGlobal

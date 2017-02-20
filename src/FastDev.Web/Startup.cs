@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
+using FastDev.Web.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -29,6 +29,22 @@ namespace FastDev.Web
         {
             // Add framework services.
             services.AddMvc();
+
+            // Configure the application to use in memory database
+            services.AddDbContext<AContext>(options => options.UseInMemoryDatabase("FastDev"));
+
+            // Configure to use single instance of FileStore that stores images in C:\fastdev\images folder
+            var imagesStoreLocation = Configuration["imagesStoreLocation"];
+            try
+            {
+                imagesStoreLocation = Path.GetFullPath(imagesStoreLocation);
+                services.AddSingleton(new FileStore(imagesStoreLocation));
+            }
+            catch (Exception)
+            {
+                throw new Exception($"Configuration is not valid. {imagesStoreLocation} is not valid Windows directory.");
+            }
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,7 +53,24 @@ namespace FastDev.Web
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseMvc();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseBrowserLink();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
+
+            app.UseStaticFiles();
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 }
